@@ -1,0 +1,18 @@
+BARBEARIA - API (Node) + APP (React Native / Expo)
+
+PASSO 1 (uma vez so): dê dois cliques em configurar-app.bat
+         (cria a pasta "app" com o projeto Expo e copia o codigo para dentro)
+
+PASSO 2 - API (terminal 1, na pasta "api"):
+         npm install
+         copy .env.example .env      (se ja existir .env, pule)
+         npx prisma migrate dev --name init
+         npm run db:seed
+         npm run dev                 (deixe aberto; Swagger em http://localhost:3000/docs)
+
+PASSO 3 - APP (terminal 2, na pasta "app"):
+         npx expo start --web        (abre em http://localhost:8081)
+
+Login de teste: admin@barbearia.com / 123456
+Se a tela de login mostrar uma API diferente de http://localhost:3000, edite
+app\src\config.ts e coloque API_URL_MANUAL = "http://localhost:3000".
